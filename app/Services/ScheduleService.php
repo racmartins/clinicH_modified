@@ -1,7 +1,9 @@
 <?php
 
     namespace App\Services;
+
     use App\Interfaces\ScheduleServiceInterface;
+
     use Carbon\Carbon;
     use App\WorkDay;
     use App\Appointment;

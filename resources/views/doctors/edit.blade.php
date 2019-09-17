@@ -75,11 +75,10 @@
 @section('scripts')
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    <script>
+      $(document).ready(() => {
+          $('#specialties').selectpicker('val',@json($specialty_ids));
+      });
+    </script>
 @endsection
-<script>
-  $(document).ready( ()=> {
-      $(#specialties).selectpicker('val',@jason($specialty_ids));
-  });
-
-</script>
 

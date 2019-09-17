@@ -3,8 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
+use App\Interfaces\ScheduleServiceInterface;
+use App\Http\Requests\StoreAppointment;
+
+
 use App\Specialty;
 use App\Appointment;
+use Carbon\Carbon;
+use Validator;
 
 class AppointmentController extends Controller
 {
@@ -35,7 +43,7 @@ class AppointmentController extends Controller
         if ($created)
     	   $notification = 'A consulta foi corretamente registada!';
         else
-           $notification = 'Ocurreu um problema ao registar a consulta médica.';
+           $notification = 'Ocorreu um problema ao registar a consulta médica.';
     	return back()->with(compact('notification'));
     	// return redirect('/appointments');
     }

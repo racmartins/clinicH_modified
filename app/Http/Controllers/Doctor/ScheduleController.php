@@ -1,9 +1,12 @@
 <?php
 namespace App\Http\Controllers\Doctor;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\WorkDay;
 use Carbon\Carbon;
+
 class ScheduleController extends Controller
 {
     private $days = [
@@ -40,13 +43,15 @@ class ScheduleController extends Controller
         $morning_end = $request->input('morning_end');
         $afternoon_start = $request->input('afternoon_start');
         $afternoon_end = $request->input('afternoon_end');
+
         $errors = [];
+
         for ($i=0; $i<7; ++$i) {
             if ($morning_start[$i] > $morning_end[$i]) {
-                $errors []= 'As horas do turno da manhã são inconsistentes para o dia ' . $this->days[$i] . '.';
+                $errors [] = 'As horas do turno da manhã são inconsistentes para o dia ' . $this->days[$i] . '.';
             }
             if ($afternoon_start[$i] > $afternoon_end[$i]) {
-                $errors []= 'As horas do turno da tarde são inconsistentes para o dia ' . $this->days[$i] . '.';
+                $errors [] = 'As horas do turno da tarde são inconsistentes para o dia ' . $this->days[$i] . '.';
             }
             WorkDay::updateOrCreate([
                 'day' => $i,

@@ -2,7 +2,7 @@ let $doctor, $date, $specialty, $hours;
 let iRadio;
 
 const noHoursAlert = `<div class="alert alert-danger" role="alert">
-    <strong>Lamentamos!</strong> Não se encontraram horas disponiveis para o médico no dia selecionado.
+    <strong>Lamntamos!</strong> Não se encontraram horas disponíveis para o médico no dia selecionado.
 </div>`;
 
 $(function () {
@@ -11,9 +11,9 @@ $(function () {
   $date = $('#date');
   $hours = $('#hours');
 
-  $specialty.change(() => {
+$specialty.change(() => {
     const specialtyId = $specialty.val();
-    const url = `/specialties/${specialtyId}/doctors`;
+    const url = `/api/specialties/${specialtyId}/doctors`;
     $.getJSON(url, onDoctorsLoaded);
   });
 
@@ -33,7 +33,7 @@ function onDoctorsLoaded(doctors) {
 function loadHours() {
   const selectedDate = $date.val();
   const doctorId = $doctor.val();
-  const url = `/schedule/hours?date=${selectedDate}&doctor_id=${doctorId}`;
+  const url = `/api/schedule/hours?date=${selectedDate}&doctor_id=${doctorId}`;
     $.getJSON(url, displayHours);
 }
 

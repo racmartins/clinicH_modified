@@ -37,6 +37,6 @@ class UsersTableSeeder extends Seeder
              'identity_card' => '017387514',
              'role' => 'doctor'
         ]);
-    	factory(User::class,50)->create();
+    	factory(User::class,50)->states('patient')->create();
     }
 }

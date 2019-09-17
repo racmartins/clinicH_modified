@@ -5,7 +5,7 @@
     <div class="card-header border-0">
       <div class="row align-items-center">
         <div class="col">
-          <h3 class="mb-0">Registar nova Consulta</h3>
+          <h3 class="mb-0">Registar nova consulta</h3>
         </div>
         <div class="col text-right">
           <a href="{{ url('patients') }}" class="btn btn-sm btn-default">
@@ -29,7 +29,7 @@
         @csrf
         <div class="form-group">
           <label for="description">Descrição</label>
-          <input name="description" value="{{ old('description') }}" id="description" type="text" class="form-control" placeholder="resuma a razão da consulta" required>
+          <input name="description" value="{{ old('description') }}" id="description" type="text" class="form-control" placeholder="Descreva brevemente a consulta" required>
         </div>
 
         <div class="form-row">
@@ -43,7 +43,7 @@
             </select>
           </div>
           <div class="form-group col-md-6">
-            <label for="email">Médico</label>
+            <label for="doctor">Médico</label>
             <select name="doctor_id" id="doctor" class="form-control" required>
               @foreach ($doctors as $doctor)
                 <option value="{{ $doctor->id }}" @if(old('doctor_id') == $doctor->id) selected @endif>{{ $doctor->name }}</option>
@@ -53,11 +53,11 @@
         </div>
 
         <div class="form-group">
-          <label for="dni">Data da consulta</label>
+          <label for="dni">Data da Consulta</label>
           <div class="input-group input-group-alternative">
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-            </div>
+              </div>
             <input class="form-control datepicker" placeholder="Selecionar data da consulta"
               id="date" name="scheduled_date" type="text"
               value="{{ old('scheduled_date', date('Y-m-d')) }}"
@@ -84,7 +84,7 @@
               @endforeach
             @else
               <div class="alert alert-info" role="alert">
-                Selecione um médico e uma data para consulta, para ver quais as horas disponiveis do médico.
+                Selecione um médico e uma data de consulta, para ver as horas disponiveis do médico.
               </div>
             @endif
           </div>
@@ -98,12 +98,12 @@
           </div>
           <div class="custom-control custom-radio mb-3">
             <input name="type" class="custom-control-input" id="type2" type="radio"
-              @if(old('type') == 'Exame') checked @endif value="Exame">
+              @if(old('type') == 'Examen') checked @endif value="Examen">
             <label class="custom-control-label" for="type2">Exame</label>
           </div>
           <div class="custom-control custom-radio mb-3">
             <input name="type" class="custom-control-input" id="type3" type="radio"
-              @if(old('type') == 'Cirurgia') checked @endif value="Cirurgia">
+              @if(old('type') == 'Operación') checked @endif value="Operación">
             <label class="custom-control-label" for="type3">Cirurgia</label>
           </div>
         </div>
